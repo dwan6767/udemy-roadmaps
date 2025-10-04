@@ -16,8 +16,6 @@
   </header>
 
   <main class="page">
-   
-
     <section class="content" id="content">
       <div id="hero">
         <h2>Welcome Engineer </h2>
@@ -25,7 +23,7 @@
       </div>
 
       <div id="topics-container" class="topics-container">
-        <!-- Pre-created category blocks. JS will fill .courses with preview cards -->
+        <!-- Existing 3 topic-blocks -->
         <div class="topic-block" data-topic="analog">
           <div class="topic-header">
             <div class="topic-title">
@@ -35,9 +33,7 @@
                 <div class="topic-desc">Op-amps, filters, oscillators and real-world analog design (preview).</div>
               </div>
             </div>
-            <div class="topic-actions">
-              
-            </div>
+            <div class="topic-actions"></div>
           </div>
           <div class="course-list"></div>
           <div style="margin-top:8px"><a class="view-all static-link" href="analog.html">View All Courses →</a></div>
@@ -52,9 +48,7 @@
                 <div class="topic-desc">Arduino, ESP32, ARM — quick preview of top course links.</div>
               </div>
             </div>
-            <div class="topic-actions">
-             
-            </div>
+            <div class="topic-actions"></div>
           </div>
           <div class="course-list"></div>
           <div style="margin-top:8px"><a class="view-all static-link" href="microcontrollers.html">View All Courses →</a></div>
@@ -69,19 +63,62 @@
                 <div class="topic-desc">Ohm's law, diodes, BJTs/MOSFETs — preview links.</div>
               </div>
             </div>
-            <div class="topic-actions">
-              
-            </div>
+            <div class="topic-actions"></div>
           </div>
           <div class="course-list"></div>
           <div style="margin-top:8px"><a class="view-all static-link" href="basics.html">View All Courses →</a></div>
         </div>
 
-        <!-- You can add more pre-made topic-blocks (data-topic="power"... ) -->
+        <!-- New topic-blocks -->
+
+        <div class="topic-block" data-topic="digital">
+          <div class="topic-header">
+            <div class="topic-title">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="rgba(255,255,255,0.06)"/></svg>
+              <div>
+                <h3>Digital Electronics</h3>
+                <div class="topic-desc">Logic gates, flip-flops, microprocessors — quick preview.</div>
+              </div>
+            </div>
+            <div class="topic-actions"></div>
+          </div>
+          <div class="course-list"></div>
+          <div style="margin-top:8px"><a class="view-all static-link" href="digital.html">View All Courses →</a></div>
+        </div>
+
+        <div class="topic-block" data-topic="radio">
+          <div class="topic-header">
+            <div class="topic-title">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.06)"/></svg>
+              <div>
+                <h3>Radio Electronics</h3>
+                <div class="topic-desc">RF circuits, antennas, and communication systems (preview).</div>
+              </div>
+            </div>
+            <div class="topic-actions"></div>
+          </div>
+          <div class="course-list"></div>
+          <div style="margin-top:8px"><a class="view-all static-link" href="radio.html">View All Courses →</a></div>
+        </div>
+
+        <div class="topic-block" data-topic="programming">
+          <div class="topic-header">
+            <div class="topic-title">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M2 2h20v20H2z" stroke="rgba(255,255,255,0.06)"/></svg>
+              <div>
+                <h3>Programming Fundamentals</h3>
+                <div class="topic-desc">C, Python, embedded programming basics — preview.</div>
+              </div>
+            </div>
+            <div class="topic-actions"></div>
+          </div>
+          <div class="course-list"></div>
+          <div style="margin-top:8px"><a class="view-all static-link" href="programming.html">View All Courses →</a></div>
+        </div>
+
       </div>
     </section>
   </main>
-
 
   <script src="js/main.js" defer></script>
 </body>
