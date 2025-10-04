@@ -24,13 +24,28 @@
 
       <div id="topics-container" class="topics-container">
         <!-- Existing 3 topic-blocks -->
+		  <div class="topic-block" data-topic="basics">
+          <div class="topic-header">
+            <div class="topic-title">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-6 4 3 7-7-4-7 4 3-7-6-4h7z" stroke="rgba(255,255,255,0.06)"/></svg>
+              <div>
+                <h3>Electronics Fundamentals</h3>
+                <div class="topic-desc">Ohm's law, diodes,,resistors, capacitors</div>
+              </div>
+            </div>
+            <div class="topic-actions"></div>
+          </div>
+          <div class="course-list"></div>
+          <div style="margin-top:8px"><a class="view-all static-link" href="basics.html">View All Courses →</a></div>
+        </div>
+
         <div class="topic-block" data-topic="analog">
           <div class="topic-header">
             <div class="topic-title">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="#00eaff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 22v-6" stroke="#8e2de2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="7" stroke="rgba(255,255,255,0.06)"/></svg>
               <div>
                 <h3>Analog Electronics</h3>
-                <div class="topic-desc">Op-amps, filters, oscillators and real-world analog design (preview).</div>
+                <div class="topic-desc">Op-amps, filters, oscillators and real-world analog design </div>
               </div>
             </div>
             <div class="topic-actions"></div>
@@ -39,35 +54,8 @@
           <div style="margin-top:8px"><a class="view-all static-link" href="analog.html">View All Courses →</a></div>
         </div>
 
-        <div class="topic-block" data-topic="microcontrollers">
-          <div class="topic-header">
-            <div class="topic-title">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="rgba(255,255,255,0.06)"/></svg>
-              <div>
-                <h3>Microcontrollers & Embedded</h3>
-                <div class="topic-desc">Arduino, ESP32, ARM — quick preview of top course links.</div>
-              </div>
-            </div>
-            <div class="topic-actions"></div>
-          </div>
-          <div class="course-list"></div>
-          <div style="margin-top:8px"><a class="view-all static-link" href="microcontrollers.html">View All Courses →</a></div>
-        </div>
+       
 
-        <div class="topic-block" data-topic="basics">
-          <div class="topic-header">
-            <div class="topic-title">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-6 4 3 7-7-4-7 4 3-7-6-4h7z" stroke="rgba(255,255,255,0.06)"/></svg>
-              <div>
-                <h3>Electronics Fundamentals</h3>
-                <div class="topic-desc">Ohm's law, diodes, BJTs/MOSFETs — preview links.</div>
-              </div>
-            </div>
-            <div class="topic-actions"></div>
-          </div>
-          <div class="course-list"></div>
-          <div style="margin-top:8px"><a class="view-all static-link" href="basics.html">View All Courses →</a></div>
-        </div>
 
         <!-- New topic-blocks -->
 
@@ -77,7 +65,7 @@
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="rgba(255,255,255,0.06)"/></svg>
               <div>
                 <h3>Digital Electronics</h3>
-                <div class="topic-desc">Logic gates, flip-flops, microprocessors — quick preview.</div>
+                <div class="topic-desc">Logic gates, flip-flops, microprocessors </div>
               </div>
             </div>
             <div class="topic-actions"></div>
@@ -85,14 +73,42 @@
           <div class="course-list"></div>
           <div style="margin-top:8px"><a class="view-all static-link" href="digital.html">View All Courses →</a></div>
         </div>
-
+ <div class="topic-block" data-topic="microcontrollers">
+          <div class="topic-header">
+            <div class="topic-title">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="rgba(255,255,255,0.06)"/></svg>
+              <div>
+                <h3>Embedded Hardware</h3>
+                <div class="topic-desc">Arduino, ESP32, ARM </div>
+              </div>
+            </div>
+            <div class="topic-actions"></div>
+          </div>
+          <div class="course-list"></div>
+          <div style="margin-top:8px"><a class="view-all static-link" href="microcontrollers.html">View All Courses →</a></div>
+        </div>
+		  <div class="topic-block" data-topic="programming">
+          <div class="topic-header">
+            <div class="topic-title">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M2 2h20v20H2z" stroke="rgba(255,255,255,0.06)"/></svg>
+              <div>
+                <h3>Embedded Software</h3>
+                <div class="topic-desc">Microcontroller programming and Making your own driver</div>
+              </div>
+            </div>
+            <div class="topic-actions"></div>
+          </div>
+          <div class="course-list"></div>
+          <div style="margin-top:8px"><a class="view-all static-link" href="programming.html">View All Courses →</a></div>
+        </div>
+		
         <div class="topic-block" data-topic="radio">
           <div class="topic-header">
             <div class="topic-title">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.06)"/></svg>
               <div>
-                <h3>Radio Electronics</h3>
-                <div class="topic-desc">RF circuits, antennas, and communication systems (preview).</div>
+                <h3>RF wizadry</h3>
+                <div class="topic-desc">RF circuits, antennas, and communication systems </div>
               </div>
             </div>
             <div class="topic-actions"></div>
@@ -101,20 +117,6 @@
           <div style="margin-top:8px"><a class="view-all static-link" href="radio.html">View All Courses →</a></div>
         </div>
 
-        <div class="topic-block" data-topic="programming">
-          <div class="topic-header">
-            <div class="topic-title">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M2 2h20v20H2z" stroke="rgba(255,255,255,0.06)"/></svg>
-              <div>
-                <h3>Programming Fundamentals</h3>
-                <div class="topic-desc">C, Python, embedded programming basics — preview.</div>
-              </div>
-            </div>
-            <div class="topic-actions"></div>
-          </div>
-          <div class="course-list"></div>
-          <div style="margin-top:8px"><a class="view-all static-link" href="programming.html">View All Courses →</a></div>
-        </div>
 
       </div>
     </section>
