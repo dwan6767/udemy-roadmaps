@@ -26,7 +26,7 @@ body{
   /* Gradient animation */
   background: linear-gradient(120deg, #08121a, #0f2a3a, #084c26, #b5a603);
   background-size: 800% 800%;
-  animation: gradientShift 180s ease infinite;
+  animation: gradientShift 30s ease infinite;
 }
 /* ----------------------
    Header
