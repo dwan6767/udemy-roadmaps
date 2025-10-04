@@ -15,7 +15,6 @@
 body{
   margin:0;
   font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-  background: radial-gradient(circle at 10% 10%, #07121a, #102b36 35%, #112a36 100%);
   color:#e6f7ff;
   font-weight:400;
   font-size:16px;
@@ -23,8 +22,12 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   min-height:100vh;
-}
 
+  /* Gradient animation */
+  background: linear-gradient(120deg, #08121a, #0f2a3a, #084c26, #b5a603);
+  background-size: 800% 800%;
+  animation: gradientShift 180s ease infinite;
+}
 /* ----------------------
    Header
 ----------------------- */
@@ -213,4 +216,11 @@ body{
 /* Responsive */
 @media (max-width:920px){
   .page{padding:0 12px}
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
 }
