@@ -1,12 +1,10 @@
-// main.js — hybrid AJAX preview + static fallback
+// main.js — simplified for always-open course lists + fade-in animation
 const topicsUrl = './data/topics.json';
-const topicListEl = document.getElementById('topic-list');
 const topicsContainer = document.getElementById('topics-container');
-const searchInput = document.getElementById('topic-search');
 
 let topicsData = [];
 
-// Fallback sample data (used if fetch fails)
+// Fallback sample data
 const sampleFallback = [
   { id:'analog', name:'Analog Electronics', description:'Op-amps, filters, design.', links:[
     {title:'Analog Circuit (Udemy)', url:'#'},
@@ -29,33 +27,31 @@ async function init(){
     console.warn('Could not fetch topics.json — using fallback. Error:', err);
     topicsData = sampleFallback;
   }
-  renderTopicButtons(topicsData);
-  populatePreviews(topicsData);
-  setupSearch();
-  setupToggleHeaders();
-}
 
-function renderTopicButtons(topics){
-  topicListEl.innerHTML = '';
-  topics.forEach(t=>{
-    const btn = document.createElement('button');
-    btn.className = 'topic-btn';
-    btn.innerHTML = `<span>${t.name}</span><small class="small">${t.description.substring(0,60)}${t.description.length>60?"…":""}</small>`;
-    btn.addEventListener('click', ()=> focusTopicBlock(t.id));
-    topicListEl.appendChild(btn);
-  });
+  populatePreviews(topicsData);
+
+  // Fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.1});
+
+  document.querySelectorAll('.topic-block, .course-card').forEach(el => observer.observe(el));
 }
 
 function populatePreviews(topics){
-  // For each pre-created .topic-block, fill its .course-list with up to 3 links
   document.querySelectorAll('.topic-block').forEach(block=>{
     const tid = block.dataset.topic;
     const listEl = block.querySelector('.course-list');
     listEl.innerHTML = ''; // clear
+
     const topic = topics.find(x => x.id === tid);
     if(topic && topic.links && topic.links.length){
-      const preview = topic.links.slice(0,3);
-      preview.forEach(link => {
+      topic.links.forEach(link => {
         const card = document.createElement('div');
         card.className = 'course-card';
         card.innerHTML = `
@@ -72,54 +68,9 @@ function populatePreviews(topics){
     } else {
       listEl.innerHTML = `<div class="course-card"><div class="course-meta"><h4>No preview available</h4><p class="muted">Open the full page for the complete list.</p></div></div>`;
     }
-  });
-}
 
-function setupToggleHeaders(){
-  document.querySelectorAll('.topic-header').forEach(header=>{
-    header.addEventListener('click', (ev)=>{
-      // allow clicking the toggle button or the header to toggle
-      const block = header.closest('.topic-block');
-      const list = block.querySelector('.course-list');
-      const btn = header.querySelector('.toggle-btn');
-      const open = list.classList.toggle('open');
-      btn.textContent = open ? 'Close' : 'Open';
-      if(open) list.scrollIntoView({behavior:'smooth', block:'nearest'});
-    });
-  });
-}
-
-// focus opens a topic block and scrolls to it
-function focusTopicBlock(id){
-  const el = document.querySelector(`.topic-block[data-topic="${id}"]`);
-  if(!el) return;
-  // close other blocks
-  document.querySelectorAll('.course-list.open').forEach(x=>{
-    if(!el.contains(x)) {
-      x.classList.remove('open');
-      const b = x.previousElementSibling.querySelector('.toggle-btn');
-      if(b) b.textContent = 'Open';
-    }
-  });
-  const list = el.querySelector('.course-list');
-  list.classList.add('open');
-  const btn = el.querySelector('.toggle-btn');
-  if(btn) btn.textContent = 'Close';
-  el.scrollIntoView({behavior:'smooth', block:'center'});
-}
-
-function setupSearch(){
-  if(!searchInput) return;
-  searchInput.addEventListener('input', e=>{
-    const q = e.target.value.trim().toLowerCase();
-    const filtered = topicsData.filter(t => t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q));
-    renderTopicButtons(filtered);
-    // Update previews too: render only blocks that msatch
-    document.querySelectorAll('.topic-block').forEach(block=>{
-      const tid = block.dataset.topic;
-      const hidden = !filtered.find(x => x.id === tid);
-      block.style.display = hidden ? 'none' : '';
-    });
+    // Make course list visible by default
+    listEl.classList.add('open');
   });
 }
 
