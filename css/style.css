@@ -1,24 +1,26 @@
 /* ----------------------
    Global font & base
 ----------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
   --bg1: #0a0a0a;
   --bg2: #111;
   --accent1: #00ff88;   /* neon green */
   --accent2: #00cc66;   /* darker green */
-  --glass: rgba(255, 255, 255, 0.05);
-  --muted: rgba(200, 200, 200, 0.65);
+  --accent-red: #ff4c4c;
+  --accent-blue: #4ca6ff;
+  --accent-yellow: #ffd633;
+  --muted: rgba(200, 200, 200, 0.75);
 }
 
 * { box-sizing: border-box }
 
 body {
   margin: 0;
-  font-family: "Press Start 2P", monospace; /* pixel-style font */
+  font-family: "VT323", monospace; /* retro but more readable */
   color: #e0e0e0;
-  font-size: 12px; /* smaller, retro feel */
+  font-size: 18px; /* larger for readability */
   line-height: 1.6;
   min-height: 100vh;
   
@@ -44,27 +46,14 @@ body {
 }
 .site-header h1 {
   margin: 0;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 2rem;
   color: var(--accent1);
-  text-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
 }
 .tag {
   color: var(--muted);
   margin-top: 6px;
-  font-size: 0.7rem;
-}
-
-/* ----------------------
-   Layout
------------------------ */
-.page {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  max-width: 1200px;
-  margin: 28px auto;
-  padding: 0 18px;
+  font-size: 1rem;
 }
 
 /* ----------------------
@@ -72,9 +61,9 @@ body {
 ----------------------- */
 .topic-block {
   background: #111;
-  border-radius: 0; /* blocky style */
   padding: 14px;
   border: 2px solid var(--accent2);
+  margin-bottom: 12px;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .topic-block:hover {
@@ -85,12 +74,12 @@ body {
 .topic-title h3 {
   margin: 0;
   color: var(--accent1);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 .topic-desc {
   color: var(--muted);
   margin-top: 4px;
-  font-size: 0.65rem;
+  font-size: 0.95rem;
 }
 
 /* ----------------------
@@ -104,24 +93,24 @@ body {
   padding: 12px;
   margin-bottom: 10px;
   border: 2px solid var(--accent2);
-  border-radius: 0; /* blocky */
   background: #0d0d0d;
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .2s;
 }
 .course-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+  border-color: var(--accent-blue); /* blue accent on hover */
 }
 
 .course-meta h4 {
   margin: 0;
   color: var(--accent1);
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 .course-meta p {
   margin: 6px 0 0;
   color: var(--muted);
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   line-height: 1.4;
 }
 
@@ -130,17 +119,31 @@ body {
 ----------------------- */
 .course-cta a {
   display: inline-block;
-  padding: 6px 10px;
+  padding: 8px 14px;
   border: 2px solid var(--accent1);
-  border-radius: 0; /* square buttons */
   background: #000;
   color: var(--accent1);
   text-decoration: none;
-  font-size: 0.65rem;
-  transition: background .2s ease, color .2s ease, transform .15s ease;
+  font-size: 0.9rem;
+  transition: all .2s ease;
 }
+
+/* subtle color variety for fun */
+.course-card:nth-child(3n) .course-cta a {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+.course-card:nth-child(3n+1) .course-cta a {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+.course-card:nth-child(3n+2) .course-cta a {
+  border-color: var(--accent-yellow);
+  color: var(--accent-yellow);
+}
+
 .course-cta a:hover {
-  background: var(--accent1);
+  background: currentColor;
   color: #000;
   transform: scale(1.05);
 }
@@ -152,14 +155,7 @@ body {
   text-align: center;
   padding: 14px;
   color: var(--muted);
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   margin-top: 24px;
   border-top: 2px solid var(--accent2);
-}
-
-/* ----------------------
-   Responsive
------------------------ */
-@media (max-width: 920px) {
-  .page { padding: 0 12px }
 }
