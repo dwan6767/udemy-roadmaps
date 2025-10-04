@@ -1,162 +1,252 @@
-/* ----------------------
-   Global font & base
------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
+/* --------------------------------------------------------
+   Full fixed style.css
+   - Minimal black + green theme, subtle multi-color accents
+   - Pixel / hacker vibe kept, but layout constrained so it
+     doesn't feel too wide on large screens
+   - Font imported here, responsive adjustments included
+   -------------------------------------------------------- */
 
-:root {
-  --bg: #0a0a0a;
+/* Import a compact, readable coding font */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
+
+:root{
+  --max-width: 900px;     /* keeps content centered and compact */
+  --bg: #080808;
+  --panel: #0f0f0f;
+  --panel-border: #171717;
   --accent-green: #00ff88;
-  --accent-blue: #4ca6ff;
-  --accent-red: #ff4c4c;
-  --accent-yellow: #ffd633;
-  --muted: rgba(200, 200, 200, 0.75);
+  --accent-blue:  #4ca6ff;
+  --accent-red:   #ff4c4c;
+  --accent-yellow:#ffd633;
+  --muted: rgba(200,200,200,0.78);
+  --glass: rgba(255,255,255,0.02);
+  --card-gap: 12px;
 }
 
-* { box-sizing: border-box }
-
-body {
+/* Reset / base */
+*{ box-sizing: border-box; }
+html,body { height: 100%; }
+body{
   margin: 0;
-  font-family: "Fira Code", monospace;
-  color: #e0e0e0;
-  font-size: 16px;  /* more compact */
-  line-height: 1.5;
-  min-height: 100vh;
-
+  font-family: "Source Code Pro", monospace;
   background-color: var(--bg);
-  background-image: 
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 24px 24px;
+  color: #e6e6e6;
+  font-size: 15px;            /* compact but legible */
+  line-height: 1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+
+  /* faint pixel grid background for the blocky vibe */
+  background-image:
+    linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size: 26px 26px;
 }
 
-/* ----------------------
-   Header
------------------------ */
-.site-header {
-  padding: 20px 14px;
-  background: #111;
-  border-bottom: 2px solid var(--accent-green);
+/* Center main content and limit width so it doesn't feel wide */
+.header-inner,
+main.page,
+main.page > .content,
+main.page > .content > #topics-container,
+main.page > .content > #hero {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
 }
-.header-inner {
-  max-width: 1000px;
-  margin: 0 auto;
+
+/* Header */
+.site-header{
+  padding: 20px 16px;
+  background: linear-gradient(180deg, #0d0d0d, #0b0b0b);
+  border-bottom: 2px solid rgba(0,255,136,0.06);
+}
+.header-inner{
   text-align: center;
+  padding: 6px 0;
 }
-.site-header h1 {
+.site-header h1{
   margin: 0;
-  font-size: 1.8rem;
-  color: var(--accent-green);
-  text-shadow: 0 0 6px rgba(0,255,136,0.4);
-}
-.tag {
-  color: var(--muted);
-  margin-top: 4px;
-  font-size: 1rem;
-}
-
-/* ----------------------
-   Topic blocks
------------------------ */
-.topic-block {
-  background: #111;
-  padding: 14px;
-  border: 1px solid #222;
-  margin-bottom: 12px;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-.topic-block:hover {
-  box-shadow: 0 0 8px rgba(0,255,136,0.3);
-  transform: translateY(-2px);
-}
-
-.topic-title h3 {
-  margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: var(--accent-green);
+  text-shadow: 0 0 6px rgba(0,255,136,0.18);
 }
-.topic-desc {
+.tag{
+  margin-top: 6px;
   color: var(--muted);
-  margin-top: 2px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
-/* ----------------------
-   Course cards
------------------------ */
-.course-card {
+/* Page layout */
+.page{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px 16px;
+  /* max-width handled above so content is centered and compact */
+}
+
+/* Hero / intro */
+#hero{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid var(--panel-border);
+  margin-bottom: 6px;
+}
+#hero h2{ margin: 0 0 6px 0; font-size: 1.1rem; color: var(--accent-green); }
+#hero p{ margin: 0; color: var(--muted); font-size: 0.98rem; }
+
+/* Topics container (vertical list) */
+.topics-container{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Topic block (panel) */
+.topic-block{
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  padding: 12px;
+  border-radius: 6px;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .15s;
+}
+.topic-block:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  border-color: rgba(76,166,255,0.06);
+}
+
+.topic-header{
+  display:flex;
   gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.topic-title{ display:flex; gap:10px; align-items:center; }
+.topic-title h3{
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+.topic-desc{ color: var(--muted); font-size: 0.92rem; margin-top: 4px; }
+
+/* Course list (collapsible handled via .open) */
+.course-list{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .42s cubic-bezier(.2,.9,.2,1), padding .3s;
+}
+.course-list.open{
+  padding-top: 10px;
+  padding-bottom: 8px;
+  max-height: 2400px; /* large enough to show many cards */
+}
+
+/* Course card */
+.course-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--card-gap);
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #222;
-  background: #0f0f0f;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.course-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 8px rgba(255,255,255,0.2);
+  background: linear-gradient(180deg, #0c0c0c, #0b0b0b);
+  border: 1px solid #1b1b1b;
+  border-radius: 6px;
+  transition: box-shadow .15s ease, transform .12s ease, border-color .12s;
+  min-height: 54px;
 }
 
-.course-meta h4 {
+/* Keep text area flexible and allow wrapping on small screens */
+.course-meta{
+  flex: 1 1 auto;
+  min-width: 0; /* important for ellipsis/wrapping */
+}
+.course-meta h4{
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: var(--accent-green);
+  font-weight: 600;
 }
-.course-meta p {
-  margin: 4px 0 0;
+.course-meta p{
+  margin: 6px 0 0 0;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  white-space: normal;
 }
 
-/* ----------------------
-   Buttons
------------------------ */
-.course-cta a {
+/* CTA aligned right, fixed size so placement is uniform */
+.course-cta{
+  flex: 0 0 auto;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+}
+.course-cta a{
   display: inline-block;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: transparent;
   border: 1px solid var(--accent-green);
-  background: #000;
   color: var(--accent-green);
   text-decoration: none;
-  font-size: 0.85rem;
-  transition: all .2s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background .12s ease, color .12s ease, transform .12s ease;
 }
-
-/* rotate colors for fun */
-.course-card:nth-child(4n) .course-cta a {
-  border-color: var(--accent-green);
-  color: var(--accent-green);
-}
-.course-card:nth-child(4n+1) .course-cta a {
-  border-color: var(--accent-blue);
-  color: var(--accent-blue);
-}
-.course-card:nth-child(4n+2) .course-cta a {
-  border-color: var(--accent-red);
-  color: var(--accent-red);
-}
-.course-card:nth-child(4n+3) .course-cta a {
-  border-color: var(--accent-yellow);
-  color: var(--accent-yellow);
-}
-
-.course-cta a:hover {
-  background: currentColor;
+.course-cta a:hover{
+  background: var(--accent-green);
   color: #000;
+  transform: translateY(-1px);
 }
 
-/* ----------------------
-   Footer
------------------------ */
-.site-footer {
-  text-align: center;
-  padding: 12px;
+/* Rotate small accent colors so UI isn't monotone */
+.course-card:nth-child(4n) .course-cta a{ border-color: var(--accent-green); color: var(--accent-green); }
+.course-card:nth-child(4n+1) .course-cta a{ border-color: var(--accent-blue);  color: var(--accent-blue); }
+.course-card:nth-child(4n+2) .course-cta a{ border-color: var(--accent-red);   color: var(--accent-red); }
+.course-card:nth-child(4n+3) .course-cta a{ border-color: var(--accent-yellow);color: var(--accent-yellow); }
+
+/* View all link (kept subtle) */
+.view-all{ display:inline-block; margin-top:8px; color: var(--accent-green); font-weight:600; text-decoration:none; font-size:0.95rem; }
+
+/* Footer */
+.site-footer{
+  text-align:center;
   color: var(--muted);
-  font-size: 0.8rem;
-  margin-top: 20px;
-  border-top: 1px solid #222;
+  font-size: 0.85rem;
+  padding: 12px 8px;
+  border-top: 1px solid #161616;
+  margin-top: 14px;
 }
+
+/* Small helpers */
+.muted{ color: var(--muted); font-size: 0.92rem; }
+
+/* Responsive tweaks */
+@media (max-width: 980px){
+  :root{ --max-width: 92vw; } /* mobile-friendly width */
+  .site-header h1{ font-size: 1.25rem; }
+  .topic-title h3{ font-size: 1rem; }
+  .course-meta h4{ font-size: 0.95rem; }
+  .course-meta p{ font-size: 0.84rem; }
+  .course-cta a{ font-size: 0.85rem; padding: 6px 10px; }
+}
+
+@media (max-width: 640px){
+  .course-card{ flex-direction: column; align-items: stretch; gap:8px; padding:12px; }
+  .course-cta{ align-self: flex-end; }
+  .topic-header{ flex-direction: column; align-items: flex-start; gap:6px; }
+  .site-header{ padding: 16px 10px; }
+  .header-inner{ padding: 4px 0; }
+}
+
+/* small accessibility improvement: focus styles */
+a:focus, button:focus { outline: 2px dashed rgba(0,255,136,0.18); outline-offset: 3px; }
+
+/* End of file */
