@@ -1,62 +1,26 @@
 [
   {
-    "id": "analog-electronics",
-    "name": "Analog Electronics",
-    "description": "Op-amps, filters, oscillators, AC analysis and practical analog design.",
+    "name": "Analog Circuits",
+    "description": "Learn fundamentals of analog design, op-amps, filters, and amplifiers.",
     "links": [
-      {
-        "title": "Analog Circuit Design (Udemy)",
-        "url": "https://www.udemy.com/course/analog-design/?aff=YOUR_AFF_ID"
-      },
-      {
-        "title": "Op-Amp Masterclass (Udemy)",
-        "url": "https://www.udemy.com/course/op-amp-masterclass/?aff=YOUR_AFF_ID"
-      },
-      {
-        "title": "Analog Basics - Free PDF",
-        "url": "https://example.com/analog-basics.pdf"
-      }
+      { "title": "Analog Electronics Udemy Course", "url": "https://www.udemy.com/course/analog-circuits/?aff=12345" },
+      { "title": "Free PDF on Analog Basics", "url": "https://example.com/analog-basics.pdf" }
     ]
   },
   {
-    "id": "microcontrollers",
-    "name": "Microcontrollers & Embedded",
-    "description": "Arduino, ESP32, ARM Cortex — firmware, peripherals, IoT demos and projects.",
+    "name": "Microcontrollers",
+    "description": "From 8051 to ARM, get started with embedded systems.",
     "links": [
-      {
-        "title": "ESP32 IoT Development (Udemy)",
-        "url": "https://www.udemy.com/course/esp32-iot/?aff=YOUR_AFF_ID"
-      },
-      {
-        "title": "Arduino Projects for Beginners (Udemy)",
-        "url": "https://www.udemy.com/course/arduino-projects/?aff=YOUR_AFF_ID"
-      }
+      { "title": "Microcontroller Udemy Roadmap", "url": "https://www.udemy.com/course/microcontrollers/?aff=12345" },
+      { "title": "Arduino Official Docs", "url": "https://docs.arduino.cc/" }
     ]
   },
   {
-    "id": "electronics-basics",
-    "name": "Electronics Fundamentals",
-    "description": "Ohm's law, diodes, transistors, BJT/MOSFET, passive components and measurements.",
+    "name": "Basics of Electronics",
+    "description": "Solidify your fundamentals in electrical and electronics engineering.",
     "links": [
-      {
-        "title": "Electronics Fundamentals (Udemy)",
-        "url": "https://www.udemy.com/course/electronics-basics/?aff=YOUR_AFF_ID"
-      },
-      {
-        "title": "Khan Academy - Electrical Engineering",
-        "url": "https://www.khanacademy.org/science/electrical-engineering"
-      }
-    ]
-  },
-  {
-    "id": "power-electronics",
-    "name": "Power Electronics & Batteries",
-    "description": "Power converters, battery management, inverters, and practical power system design.",
-    "links": [
-      {
-        "title": "Power Electronics Complete Guide (Udemy)",
-        "url": "https://www.udemy.com/course/power-electronics/?aff=YOUR_AFF_ID"
-      }
+      { "title": "Electronics Fundamentals Course", "url": "https://www.udemy.com/course/electronics-basics/?aff=12345" },
+      { "title": "Khan Academy Free Electronics", "url": "https://www.khanacademy.org/science/electrical-engineering" }
     ]
   }
 ]
