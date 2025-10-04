@@ -1,26 +1,51 @@
 [
   {
-    "name": "Analog Circuits",
-    "description": "Learn fundamentals of analog design, op-amps, filters, and amplifiers.",
+    "id": "analog",
+    "name": "Analog Electronics",
+    "description": "Op-amps, filters, oscillators, AC analysis and practical analog design.",
     "links": [
-      { "title": "Analog Electronics Udemy Course", "url": "https://www.udemy.com/course/analog-circuits/?aff=12345" },
-      { "title": "Free PDF on Analog Basics", "url": "https://example.com/analog-basics.pdf" }
+      {
+        "title": "Analog Circuit Design (Udemy)",
+        "url": "https://www.udemy.com/course/analog-design/?aff=YOUR_AFF_ID"
+      },
+      {
+        "title": "Op-Amp Masterclass (Udemy)",
+        "url": "https://www.udemy.com/course/op-amp-masterclass/?aff=YOUR_AFF_ID"
+      },
+      {
+        "title": "Analog Basics - Free PDF",
+        "url": "https://example.com/analog-basics.pdf"
+      }
     ]
   },
   {
-    "name": "Microcontrollers",
-    "description": "From 8051 to ARM, get started with embedded systems.",
+    "id": "microcontrollers",
+    "name": "Microcontrollers & Embedded",
+    "description": "Arduino, ESP32, ARM Cortex — firmware, peripherals, IoT demos and projects.",
     "links": [
-      { "title": "Microcontroller Udemy Roadmap", "url": "https://www.udemy.com/course/microcontrollers/?aff=12345" },
-      { "title": "Arduino Official Docs", "url": "https://docs.arduino.cc/" }
+      {
+        "title": "ESP32 IoT Development (Udemy)",
+        "url": "https://www.udemy.com/course/esp32-iot/?aff=YOUR_AFF_ID"
+      },
+      {
+        "title": "Arduino Projects for Beginners (Udemy)",
+        "url": "https://www.udemy.com/course/arduino-projects/?aff=YOUR_AFF_ID"
+      }
     ]
   },
   {
-    "name": "Basics of Electronics",
-    "description": "Solidify your fundamentals in electrical and electronics engineering.",
+    "id": "basics",
+    "name": "Electronics Fundamentals",
+    "description": "Ohm's law, diodes, transistors, BJT/MOSFET, passive components and measurements.",
     "links": [
-      { "title": "Electronics Fundamentals Course", "url": "https://www.udemy.com/course/electronics-basics/?aff=12345" },
-      { "title": "Khan Academy Free Electronics", "url": "https://www.khanacademy.org/science/electrical-engineering" }
+      {
+        "title": "Electronics Fundamentals (Udemy)",
+        "url": "https://www.udemy.com/course/electronics-basics/?aff=YOUR_AFF_ID"
+      },
+      {
+        "title": "Khan Academy - Electrical Engineering",
+        "url": "https://www.khanacademy.org/science/electrical-engineering"
+      }
     ]
   }
 ]
