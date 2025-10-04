@@ -145,17 +145,18 @@ body{
 /* ----------------------
    Course cards
 ----------------------- */
-.course-card{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:10px;
-  background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.02);
-  box-shadow:0 6px 18px rgba(6,18,30,0.4);
-  transition:transform .18s ease,box-shadow .18s ease;
+.course-card {
+  display: flex;
+  justify-content: space-between; /* ensures text left, button right */
+  align-items: center;            /* vertically centers button with title */
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 6px 18px rgba(6,18,30,0.4);
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
 .course-card:hover{
