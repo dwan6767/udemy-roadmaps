@@ -1,12 +1,9 @@
-// Placeholder for future dynamic features
-console.log("JS loaded - add search/filter functionality here");
-
-// Example: You can later load courses from data/courses.js and render dynamically
-// Load topics list
 fetch('data/topics.json')
   .then(response => response.json())
   .then(topics => {
     const topicList = document.getElementById('topic-list');
+    topicList.innerHTML = ""; // clear "Loading..."
+
     topics.forEach((topic, index) => {
       const btn = document.createElement('button');
       btn.innerText = topic.name;
@@ -14,9 +11,13 @@ fetch('data/topics.json')
       btn.onclick = () => loadTopic(topic);
       topicList.appendChild(btn);
     });
+
+    // auto-load first topic
+    if (topics.length > 0) {
+      loadTopic(topics[0]);
+    }
   });
 
-// Function to load topic content dynamically
 function loadTopic(topic) {
   const content = document.getElementById('content');
   content.innerHTML = `
