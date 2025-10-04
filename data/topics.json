@@ -49,3 +49,31 @@
     ]
   }
 ]
+[
+  {
+    "id": "digital",
+    "name": "Digital Electronics",
+    "description": "Logic gates, flip-flops, microprocessors",
+    "links": [
+      { "title": "Digital Logic Design (Udemy)", "url": "https://example.com/digital-course" },
+      { "title": "Microprocessors Basics (PDF)", "url": "https://example.com/microprocessor" }
+    ]
+  },
+  {
+    "id": "radio",
+    "name": "Radio Electronics",
+    "description": "RF circuits, antennas, communication systems",
+    "links": [
+      { "title": "RF Fundamentals (Udemy)", "url": "https://example.com/rf-course" }
+    ]
+  },
+  {
+    "id": "programming",
+    "name": "Programming Fundamentals",
+    "description": "C, Python, Embedded Programming Basics",
+    "links": [
+      { "title": "C Programming for Beginners", "url": "https://example.com/c-course" },
+      { "title": "Python Basics (Udemy)", "url": "https://example.com/python-course" }
+    ]
+  }
+]
