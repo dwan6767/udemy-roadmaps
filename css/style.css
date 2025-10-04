@@ -1,145 +1,91 @@
 /* ----------------------
    Global font & base
 ----------------------- */
-:root{
-  --bg1: #08121a;
-  --bg2: #0f2a3a;
-  --accent1: #00eaff;
-  --accent2: #8e2de2;
-  --glass: rgba(255,255,255,0.06);
-  --muted: rgba(224,224,224,0.55);
+:root {
+  --bg1: #0a0a0a;
+  --bg2: #111;
+  --accent1: #00ff88;   /* neon green */
+  --accent2: #00cc66;   /* darker green */
+  --glass: rgba(255, 255, 255, 0.05);
+  --muted: rgba(200, 200, 200, 0.65);
 }
 
-*{box-sizing:border-box}
+* { box-sizing: border-box }
 
-body{
-  margin:0;
-  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-  color:#e6f7ff;
-  font-weight:400;
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  min-height:100vh;
-
-  /* Gradient animation */
-  background: linear-gradient(120deg, #08121a, #0f2a3a, #084c26, #b5a603);
-  background-size: 800% 800%;
-  animation: gradientShift 30s ease infinite;
+body {
+  margin: 0;
+  font-family: "Fira Code", "Roboto Mono", monospace;
+  color: #e0e0e0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  background: var(--bg1);
 }
+
 /* ----------------------
    Header
 ----------------------- */
-.site-header{
-  padding:28px 20px;
-  background:linear-gradient(90deg,#05202b 0%, rgba(0,198,255,0.06) 40%, rgba(142,45,226,0.06) 100%);
-  box-shadow:0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.02);
+.site-header {
+  padding: 28px 20px;
+  background: #0f0f0f;
+  border-bottom: 1px solid #1a1a1a;
 }
-.header-inner{
-  max-width:1100px;
-  margin:0 auto;
-  text-align:center;
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
 }
-.site-header h1{
-  margin:0;
-  font-size:2.2rem;
-  font-weight:600;
-  color:var(--accent1);
-  text-shadow:0 0 20px rgba(0,234,255,0.06);
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent1);
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.3);
 }
-.tag{
-  color:var(--muted);
-  margin-top:6px;
-  font-weight:400;
-  font-size:1rem;
+.tag {
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 /* ----------------------
    Layout
 ----------------------- */
-.page{
-  display:flex;
-  flex-direction:column; /* sidebar removed */
-  gap:18px;
-  max-width:1200px;
-  margin:28px auto;
-  padding:0 18px;
-}
-
-/* ----------------------
-   Content area
------------------------ */
-.content{
-  flex:1;
-}
-
-#hero{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-  padding:18px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,0.03);
-  margin-bottom:16px;
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 18px;
 }
 
 /* ----------------------
    Topic blocks
 ----------------------- */
-.topics-container{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
+.topic-block {
+  background: #111;
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid #1c1c1c;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.topic-block:hover {
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.15);
 }
 
-.topic-block{
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border-radius:12px;
-  padding:14px;
-  border:1px solid rgba(255,255,255,0.04);
-  overflow:hidden;
-  transition:box-shadow .25s ease,transform .25s ease;
+.topic-title h3 {
+  margin: 0;
+  color: var(--accent1);
+  font-weight: 600;
+  font-size: 1.2rem;
 }
-
-.topic-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  cursor:pointer;
-}
-
-.topic-title{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.topic-title h3{
-  margin:0;
-  color:var(--accent1);
-  font-weight:600;
-  font-size:1.2rem;
-}
-
-.topic-desc{
-  color:var(--muted);
-  margin-top:4px;
-  font-size:0.95rem;
-}
-
-/* ----------------------
-   Collapsible content
------------------------ */
-.course-list{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height .45s cubic-bezier(.2,.9,.2,1),padding .3s;
-}
-
-.course-list.open{
-  padding-top:12px;
-  padding-bottom:6px;
-  max-height:1200px;
+.topic-desc {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 0.95rem;
 }
 
 /* ----------------------
@@ -147,81 +93,68 @@ body{
 ----------------------- */
 .course-card {
   display: flex;
-  justify-content: space-between; /* ensures text left, button right */
-  align-items: center;            /* vertically centers button with title */
+  justify-content: space-between;
+  align-items: center;
   gap: 12px;
   padding: 12px;
   border-radius: 10px;
   margin-bottom: 10px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.02);
-  box-shadow: 0 6px 18px rgba(6,18,30,0.4);
+  background: #0d0d0d;
+  border: 1px solid #1c1c1c;
   transition: transform .18s ease, box-shadow .18s ease;
 }
-
-.course-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,198,255,0.06);
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.15);
 }
 
-.course-meta h4{
-  margin:0;
-  color:var(--accent1);
-  font-weight:600;
-  font-size:1rem;
+.course-meta h4 {
+  margin: 0;
+  color: var(--accent1);
+  font-weight: 600;
+  font-size: 1rem;
+}
+.course-meta p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.course-meta p{
-  margin:6px 0 0;
-  color:var(--muted);
-  font-size:0.95rem;
-  line-height:1.5;
+/* ----------------------
+   Buttons
+----------------------- */
+.course-cta a {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: var(--accent1);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background .2s ease, transform .15s ease;
+}
+.course-cta a:hover {
+  background: var(--accent2);
+  transform: scale(1.05);
 }
 
-/* CTA buttons */
-.course-cta a{
-  display:inline-block;
-  padding:8px 12px;
-  border-radius:8px;
-  background:linear-gradient(90deg,var(--accent2),var(--accent1));
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-  font-size:0.95rem;
-  box-shadow:0 8px 30px rgba(0,198,255,0.12);
-  transition:filter .2s ease;
-}
-.course-cta a:hover{
-  filter:brightness(1.05);
+/* ----------------------
+   Footer
+----------------------- */
+.site-footer {
+  text-align: center;
+  padding: 14px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 24px;
+  border-top: 1px solid #1a1a1a;
 }
 
-/* View All links */
-.view-all{
-  color:var(--accent1);
-  text-decoration:none;
-  font-weight:600;
-  font-size:0.95rem;
-  margin-top:6px;
-  display:inline-block;
-}
-
-/* Footer */
-.site-footer{
-  text-align:center;
-  padding:14px;
-  color:var(--muted);
-  font-size:0.85rem;
-  margin-top:24px;
-}
-
-/* Responsive */
-@media (max-width:920px){
-  .page{padding:0 12px}
-}
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 50% 50%; }
-  50% { background-position: 100% 50%; }
-  75% { background-position: 50% 50%; }
-  100% { background-position: 0% 50%; }
+/* ----------------------
+   Responsive
+----------------------- */
+@media (max-width: 920px) {
+  .page { padding: 0 12px }
 }
