@@ -114,7 +114,7 @@ function setupSearch(){
     const q = e.target.value.trim().toLowerCase();
     const filtered = topicsData.filter(t => t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q));
     renderTopicButtons(filtered);
-    // Update previews too: render only blocks that match
+    // Update previews too: render only blocks that msatch
     document.querySelectorAll('.topic-block').forEach(block=>{
       const tid = block.dataset.topic;
       const hidden = !filtered.find(x => x.id === tid);
