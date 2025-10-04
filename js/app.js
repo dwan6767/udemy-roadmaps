@@ -1,4 +1,4 @@
-// main.js — hybrid AJAX preview + static fallback + fade-in animations
+// main.js — hybrid AJAX preview + static fallback
 const topicsUrl = './data/topics.json';
 const topicListEl = document.getElementById('topic-list');
 const topicsContainer = document.getElementById('topics-container');
@@ -6,7 +6,7 @@ const searchInput = document.getElementById('topic-search');
 
 let topicsData = [];
 
-// Fallback sample data
+// Fallback sample data (used if fetch fails)
 const sampleFallback = [
   { id:'analog', name:'Analog Electronics', description:'Op-amps, filters, design.', links:[
     {title:'Analog Circuit (Udemy)', url:'#'},
@@ -29,17 +29,13 @@ async function init(){
     console.warn('Could not fetch topics.json — using fallback. Error:', err);
     topicsData = sampleFallback;
   }
-
   renderTopicButtons(topicsData);
   populatePreviews(topicsData);
   setupSearch();
   setupToggleHeaders();
-  setupFadeInAnimations();
 }
 
-// Render sidebar / top buttons
 function renderTopicButtons(topics){
-  if(!topicListEl) return;
   topicListEl.innerHTML = '';
   topics.forEach(t=>{
     const btn = document.createElement('button');
@@ -50,15 +46,16 @@ function renderTopicButtons(topics){
   });
 }
 
-// Populate previews into topic blocks
 function populatePreviews(topics){
+  // For each pre-created .topic-block, fill its .course-list with up to 3 links
   document.querySelectorAll('.topic-block').forEach(block=>{
     const tid = block.dataset.topic;
     const listEl = block.querySelector('.course-list');
-    listEl.innerHTML = '';
+    listEl.innerHTML = ''; // clear
     const topic = topics.find(x => x.id === tid);
     if(topic && topic.links && topic.links.length){
-      topic.links.slice(0,3).forEach(link => {
+      const preview = topic.links.slice(0,3);
+      preview.forEach(link => {
         const card = document.createElement('div');
         card.className = 'course-card';
         card.innerHTML = `
@@ -78,24 +75,25 @@ function populatePreviews(topics){
   });
 }
 
-// Setup toggle for topic blocks
 function setupToggleHeaders(){
   document.querySelectorAll('.topic-header').forEach(header=>{
-    header.addEventListener('click', ()=>{
+    header.addEventListener('click', (ev)=>{
+      // allow clicking the toggle button or the header to toggle
       const block = header.closest('.topic-block');
       const list = block.querySelector('.course-list');
       const btn = header.querySelector('.toggle-btn');
       const open = list.classList.toggle('open');
-      if(btn) btn.textContent = open ? 'Close' : 'Open';
+      btn.textContent = open ? 'Close' : 'Open';
       if(open) list.scrollIntoView({behavior:'smooth', block:'nearest'});
     });
   });
 }
 
-// Focus a topic block from sidebar buttons
+// focus opens a topic block and scrolls to it
 function focusTopicBlock(id){
   const el = document.querySelector(`.topic-block[data-topic="${id}"]`);
   if(!el) return;
+  // close other blocks
   document.querySelectorAll('.course-list.open').forEach(x=>{
     if(!el.contains(x)) {
       x.classList.remove('open');
@@ -110,35 +108,22 @@ function focusTopicBlock(id){
   el.scrollIntoView({behavior:'smooth', block:'center'});
 }
 
-// Setup search filter
 function setupSearch(){
   if(!searchInput) return;
   searchInput.addEventListener('input', e=>{
     const q = e.target.value.trim().toLowerCase();
     const filtered = topicsData.filter(t => t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q));
     renderTopicButtons(filtered);
+    // Update previews too: render only blocks that msatch
     document.querySelectorAll('.topic-block').forEach(block=>{
       const tid = block.dataset.topic;
-      block.style.display = filtered.find(x => x.id === tid) ? '' : 'none';
+      const hidden = !filtered.find(x => x.id === tid);
+      block.style.display = hidden ? 'none' : '';
     });
   });
 }
 
-// Fade-in animation
-function setupFadeInAnimations(){
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.1});
-
-  document.querySelectorAll('.topic-block, .course-card').forEach(el => observer.observe(el));
-}
-
-// XSS-safe helpers
+// small XSS-safe helpers
 function escapeHtml(str){
   if(!str) return '';
   return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
