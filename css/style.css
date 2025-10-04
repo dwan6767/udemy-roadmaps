@@ -1,39 +1,103 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #f4f6f9;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f7fb;
+  color: #333;
 }
 
 header {
   text-align: center;
-  margin-bottom: 20px;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  color: white;
 }
 
-nav {
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.container {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 20px;
+  min-height: 80vh;
 }
 
-.topic-btn {
-  padding: 10px 15px;
+/* Sidebar */
+aside {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+}
+
+aside h2 {
+  margin-top: 0;
+}
+
+aside button {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.3rem 0;
   border: none;
   border-radius: 6px;
-  background: #0070f3;
+  background: #0072ff;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+aside button:hover {
+  background: #005ecb;
+}
+
+/* Main content */
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.course-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card h3 {
+  margin-top: 0;
+}
+
+.course-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background: #00c6ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
   transition: background 0.3s;
 }
 
-.topic-btn:hover {
-  background: #0059c9;
+.course-card a:hover {
+  background: #009edb;
 }
 
-#content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  min-height: 200px;
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  border-top: 1px solid #ddd;
 }
