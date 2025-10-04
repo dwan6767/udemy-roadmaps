@@ -1,41 +1,39 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
+  margin: 20px;
+  background: #f4f6f9;
 }
 
 header {
   text-align: center;
-  padding: 2rem;
-  background: #1e40af;
-  color: white;
+  margin-bottom: 20px;
 }
 
-.roadmap-card, .course-card {
-  background: white;
-  padding: 1rem;
-  margin: 1rem auto;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.course-card img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: #2563eb;
-  color: white;
-  text-decoration: none;
+.topic-btn {
+  padding: 10px 15px;
+  border: none;
   border-radius: 6px;
+  background: #0070f3;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-a:hover {
-  background: #1e40af;
+.topic-btn:hover {
+  background: #0059c9;
+}
+
+#content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 200px;
 }

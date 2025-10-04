@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Analog Circuits",
+    "description": "Learn fundamentals of analog design, op-amps, filters, and amplifiers.",
+    "links": [
+      { "title": "Analog Electronics Udemy Course", "url": "https://www.udemy.com/course/analog-circuits/?aff=12345" },
+      { "title": "Free PDF on Analog Basics", "url": "https://example.com/analog-basics.pdf" }
+    ]
+  },
+  {
+    "name": "Microcontrollers",
+    "description": "From 8051 to ARM, get started with embedded systems.",
+    "links": [
+      { "title": "Microcontroller Udemy Roadmap", "url": "https://www.udemy.com/course/microcontrollers/?aff=12345" },
+      { "title": "Arduino Official Docs", "url": "https://docs.arduino.cc/" }
+    ]
+  },
+  {
+    "name": "Basics of Electronics",
+    "description": "Solidify your fundamentals in electrical and electronics engineering.",
+    "links": [
+      { "title": "Electronics Fundamentals Course", "url": "https://www.udemy.com/course/electronics-basics/?aff=12345" },
+      { "title": "Khan Academy Free Electronics", "url": "https://www.khanacademy.org/science/electrical-engineering" }
+    ]
+  }
+]
